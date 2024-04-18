@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Android App" href="android.html" />
-    <link rel="prev" title="Python API" href="python.html" /> 
+    <link rel="prev" title="Python API" href="python_engine.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -166,15 +166,15 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="javascript.html">WebLLM and Javascript API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rest.html">Rest API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI and C++ API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript.html">WebLLM and JavaScript API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_engine.html">Python API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">iOS App and Swift API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#use-pre-built-ios-app">Use Pre-built iOS App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-ios-app-from-source">Build iOS App from Source</a><ul>
@@ -191,6 +191,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide_integration.html">Code Completion IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlc_chat_config.html">Customize MLC Config File in JSON</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
@@ -202,7 +204,6 @@
 <p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul>
@@ -442,10 +443,10 @@ controls the list of local and remote models to be packaged into the app, given 
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">model_id</span></code></dt><dd><p>(Required) Unique local identifier to identify the model.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">model_lib</span></code></dt><dd><p>(Required) Matches the system-lib-prefix, generally set during <code class="docutils literal notranslate"><span class="pre">mlc_chat</span> <span class="pre">compile</span></code> which can be specified using
+<dt><code class="docutils literal notranslate"><span class="pre">model_lib</span></code></dt><dd><p>(Required) Matches the system-lib-prefix, generally set during <code class="docutils literal notranslate"><span class="pre">mlc_llm</span> <span class="pre">compile</span></code> which can be specified using
 <code class="docutils literal notranslate"><span class="pre">--system-lib-prefix</span></code> argument. By default, it is set to <code class="docutils literal notranslate"><span class="pre">&quot;${model_type}_${quantization}&quot;</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">gpt_neox_q4f16_1</span></code>
 for the RedPajama-INCITE-Chat-3B-v1 model. If the <code class="docutils literal notranslate"><span class="pre">--system-lib-prefix</span></code> argument is manually specified during
-<code class="docutils literal notranslate"><span class="pre">mlc_chat</span> <span class="pre">compile</span></code>, the <code class="docutils literal notranslate"><span class="pre">model_lib</span></code> field should be updated accordingly.</p>
+<code class="docutils literal notranslate"><span class="pre">mlc_llm</span> <span class="pre">compile</span></code>, the <code class="docutils literal notranslate"><span class="pre">model_lib</span></code> field should be updated accordingly.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">required_vram_bytes</span></code></dt><dd><p>(Required) Estimated requirements of VRAM to run the model.</p>
 </dd>
@@ -486,15 +487,15 @@ git<span class="w"> </span>lfs<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/mlabonne/NeuralHermes-2.5-Mistral-7B
 <span class="nb">cd</span><span class="w"> </span>../..
 <span class="c1"># Convert weight</span>
-mlc_chat<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/NeuralHermes-2.5-Mistral-7B/<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/NeuralHermes-2.5-Mistral-7B/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/NeuralHermes-2.5-Mistral-7B-q3f16_1-MLC
 </pre></div>
 </div>
 <p><strong>Step 2 Generate MLC Chat Config</strong></p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">mlc_chat</span> <span class="pre">gen_config</span></code> to generate <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> and process tokenizers.
+<p>Use <code class="docutils literal notranslate"><span class="pre">mlc_llm</span> <span class="pre">gen_config</span></code> to generate <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> and process tokenizers.
 See <a class="reference internal" href="../compilation/compile_models.html#compile-command-specification"><span class="std std-ref">Compile Command Specification</span></a> for specification of <code class="docutils literal notranslate"><span class="pre">gen_config</span></code>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mlc_chat<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/NeuralHermes-2.5-Mistral-7B/<span class="w"> </span><span class="se">\</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mlc_llm<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/NeuralHermes-2.5-Mistral-7B/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q3f16_1<span class="w"> </span>--conv-template<span class="w"> </span>neural_hermes_mistral<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/NeuralHermes-2.5-Mistral-7B-q3f16_1-MLC
 </pre></div>
@@ -504,7 +505,7 @@ contains a full list of conversation templates that MLC provides.</p>
 <p>If the model you are adding requires a new conversation template, you would need to add your own.
 Follow <a class="reference external" href="https://github.com/mlc-ai/mlc-llm/pull/1402">this PR</a> as an example.
 We look up the template to use with the <code class="docutils literal notranslate"><span class="pre">conv_template</span></code> field in <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code>.</p>
-<p>For more details, please see <a class="reference internal" href="../get_started/mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Configure MLCChat in JSON</span></a>.</p>
+<p>For more details, please see <a class="reference internal" href="mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Customize MLC Config File in JSON</span></a>.</p>
 <p><strong>Step 3 Upload weights to HF</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, please create a repository on Hugging Face.</span>
 <span class="c1"># With the repository created, run</span>
@@ -559,7 +560,7 @@ own model library.</p>
 <p>This section largely replicates <a class="reference internal" href="../compilation/compile_models.html#compile-model-libraries"><span class="std std-ref">Compile Model Libraries</span></a>. See that page for
 more details, specifically the <code class="docutils literal notranslate"><span class="pre">iOS</span></code> option.</p>
 <p><strong>Step 0. Install dependencies</strong></p>
-<p>To compile model libraries for iOS, you need to <a class="reference internal" href="../install/mlc_llm.html#mlcchat-build-from-source"><span class="std std-ref">build mlc_chat from source</span></a>.</p>
+<p>To compile model libraries for iOS, you need to <a class="reference internal" href="../install/mlc_llm.html#mlcchat-build-from-source"><span class="std std-ref">build mlc_llm from source</span></a>.</p>
 <p><strong>Step 1. Clone from HF and convert_weight</strong></p>
 <p>You can be under the mlc-llm repo, or your own working directory. Note that all platforms
 can share the same compiled/quantized weights.</p>
@@ -570,7 +571,7 @@ git<span class="w"> </span>lfs<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/microsoft/phi-2
 <span class="nb">cd</span><span class="w"> </span>../..
 <span class="c1"># Convert weight</span>
-mlc_chat<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/phi-2/<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/phi-2/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/phi-2-q4f16_1-MLC
 </pre></div>
@@ -587,11 +588,11 @@ mlc_chat<span class="w"> </span>convert_weight<span class="w"> </span>./dist/mod
 </div></blockquote>
 <p>All these knobs are specified in <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> generated by <code class="docutils literal notranslate"><span class="pre">gen_config</span></code>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. gen_config: generate mlc-chat-config.json and process tokenizers</span>
-mlc_chat<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/phi-2/<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/phi-2/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span>--conv-template<span class="w"> </span>phi-2<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/phi-2-q4f16_1-MLC/
 <span class="c1"># 2. compile: compile model library with specification in mlc-chat-config.json</span>
-mlc_chat<span class="w"> </span>compile<span class="w"> </span>./dist/phi-2-q4f16_1-MLC/mlc-chat-config.json<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>compile<span class="w"> </span>./dist/phi-2-q4f16_1-MLC/mlc-chat-config.json<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--device<span class="w"> </span>iphone<span class="w"> </span>-o<span class="w"> </span>dist/libs/phi-2-q4f16_1-iphone.tar
 </pre></div>
 </div>
@@ -633,7 +634,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <p>Given the compiled library, it is possible to calculate an upper bound for the VRAM
 usage during runtime. This useful to better understand if a model is able to fit particular
 hardware. We can calculate this estimate using the following command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>~/mlc-llm<span class="w"> </span>&gt;<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>mlc_chat.cli.model_metadata<span class="w"> </span>./dist/libs/phi-2-q4f16_1-iphone.tar<span class="w"> </span><span class="se">\</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>~/mlc-llm<span class="w"> </span>&gt;<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>mlc_llm.cli.model_metadata<span class="w"> </span>./dist/libs/phi-2-q4f16_1-iphone.tar<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>&gt;<span class="w"> </span>--memory-only<span class="w"> </span>--mlc-chat-config<span class="w"> </span>./dist/phi-2-q4f16_1-MLC/mlc-chat-config.json
 <span class="w">  </span>INFO<span class="w"> </span>model_metadata.py:90:<span class="w"> </span>Total<span class="w"> </span>memory<span class="w"> </span>usage:<span class="w"> </span><span class="m">3042</span>.96<span class="w"> </span>MB<span class="w"> </span><span class="o">(</span>Parameters:<span class="w"> </span><span class="m">1492</span>.45<span class="w"> </span>MB.<span class="w"> </span>KVCache:<span class="w"> </span><span class="m">640</span>.00<span class="w"> </span>MB.<span class="w"> </span>Temporary<span class="w"> </span>buffer:<span class="w"> </span><span class="m">910</span>.51<span class="w"> </span>MB<span class="o">)</span>
 <span class="w">  </span>INFO<span class="w"> </span>model_metadata.py:99:<span class="w"> </span>To<span class="w"> </span>reduce<span class="w"> </span>memory<span class="w"> </span>usage,<span class="w"> </span>tweak<span class="w"> </span><span class="sb">`</span>prefill_chunk_size<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>context_window_size<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span><span class="sb">`</span>sliding_window_size<span class="sb">`</span>
@@ -736,7 +737,7 @@ the MLCChat app for a complete example.</p>
         <a href="android.html" class="btn btn-neutral float-right" title="Android App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="python.html" class="btn btn-neutral float-left" title="Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="python_engine.html" class="btn btn-neutral float-left" title="Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
 

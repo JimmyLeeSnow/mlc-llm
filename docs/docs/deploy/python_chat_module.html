@@ -12,7 +12,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python API &mdash; mlc-llm 0.1.0 documentation</title>
+  <title>Python API (Chat Module) &mdash; mlc-llm 0.1.0 documentation</title>
   
 
   
@@ -45,9 +45,7 @@
     
     <script type="text/javascript" src="../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="iOS App and Swift API" href="ios.html" />
-    <link rel="prev" title="CLI and C++ API" href="cli.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -166,25 +164,19 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="javascript.html">WebLLM and Javascript API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rest.html">Rest API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI and C++ API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#verify-installation">Verify Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-mlc-models-w-python">Run MLC Models w/ Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-mlcchat-in-python">Configure MLCChat in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#raw-text-generation-in-python">Raw Text Generation in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stream-iterator-in-python">Stream Iterator in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="javascript.html">WebLLM and JavaScript API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_engine.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ios.html">iOS App and Swift API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide_integration.html">Code Completion IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlc_chat_config.html">Customize MLC Config File in JSON</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
@@ -196,7 +188,6 @@
 <p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul>
@@ -270,7 +261,7 @@
     
       <li><a href="../index.html">Docs</a> <span class="br-arrow">></span></li>
         
-      <li>Python API</li>
+      <li>Python API (Chat Module)</li>
     
     
       
@@ -281,7 +272,7 @@
         
             
             
-              <a href="https://github.com/mlc-ai/mlc-llm/edit/main/docs/deploy/python.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/mlc-ai/mlc-llm/edit/main/docs/deploy/python_chat_module.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -295,8 +286,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="python-api">
-<span id="deploy-python"></span><h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading">¶</a></h1>
+  <section id="python-api-chat-module">
+<span id="deploy-python-chat-module"></span><h1>Python API (Chat Module)<a class="headerlink" href="#python-api-chat-module" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>❗ The Python API with <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatModule</span></code> introduced in this page will be
+deprecated in the near future.
+Please go to <a class="reference internal" href="python_engine.html#deploy-python-engine"><span class="std std-ref">Python API</span></a> for the latest Python API with complete
+OpenAI API support.</p>
+</div>
 <nav class="contents local" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -308,8 +306,8 @@
 <li><p><a class="reference internal" href="#api-reference" id="id6">API Reference</a></p></li>
 </ul>
 </nav>
-<p>We expose Python API for the MLC-Chat for easy integration into other Python projects.</p>
-<p>The Python API is a part of the MLC-Chat package, which we have prepared pre-built pip wheels via
+<p>We expose ChatModule Python API for the MLC-LLM for easy integration into other Python projects.</p>
+<p>The Python API is a part of the MLC-LLM package, which we have prepared pre-built pip wheels via
 the <a class="reference internal" href="../install/mlc_llm.html"><span class="doc">installation page</span></a>.</p>
 <p>Instead of following this page, you could also checkout the following tutorials in
 Python notebook (all runnable in Colab):</p>
@@ -321,10 +319,10 @@ how to perform raw text generation with MLC-LLM in Python</p></li>
 </ul>
 <section id="verify-installation">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Verify Installation</a><a class="headerlink" href="#verify-installation" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from mlc_chat import ChatModule; print(ChatModule)&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from mlc_llm import ChatModule; print(ChatModule)&quot;</span>
 </pre></div>
 </div>
-<p>You are expected to see the information about the <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_chat.ChatModule</span></code> class.</p>
+<p>You are expected to see the information about the <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatModule</span></code> class.</p>
 <p>If the command above results in error, follow <a class="reference internal" href="../install/mlc_llm.html#install-mlc-packages"><span class="std std-ref">Install MLC LLM Python Package</span></a> (either install the prebuilt pip wheels
 or <a class="reference internal" href="../install/mlc_llm.html#mlcchat-build-from-source"><span class="std std-ref">Option 2. Build from Source</span></a>).</p>
 </section>
@@ -345,12 +343,24 @@ or <a class="reference internal" href="../install/mlc_llm.html#mlcchat-build-fro
 the models you compiled yourself.</p>
 <p><strong>Step 1: Download prebuilt model weights and libraries</strong></p>
 <p>Skip this step if you have already obtained the model weights and libraries.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Activate your conda environment</span>
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>git-lfs
+
+<span class="c1"># Download pre-conveted weights</span>
+git<span class="w"> </span>lfs<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>dist/
+git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/mlc-ai/Llama-2-7b-chat-hf-q4f16_1-MLC<span class="w"> </span><span class="se">\</span>
+<span class="w">                                 </span>dist/Llama-2-7b-chat-hf-q4f16_1-MLC
+
+<span class="c1"># Download pre-compiled model library</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mlc-ai/binary-mlc-llm-libs.git<span class="w"> </span>dist/prebuilt_libs
+</pre></div>
+</div>
 <p><strong>Step 2: Run the model in Python</strong></p>
-<p>Use the conda environment you used to install <code class="docutils literal notranslate"><span class="pre">mlc_chat</span></code>.
+<p>Use the conda environment you used to install <code class="docutils literal notranslate"><span class="pre">mlc_llm</span></code>.
 From the <code class="docutils literal notranslate"><span class="pre">mlc-llm</span></code> directory, you can create a Python
-file <code class="docutils literal notranslate"><span class="pre">sample_mlc_chat.py</span></code> and paste the following lines:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_chat</span> <span class="kn">import</span> <span class="n">ChatModule</span>
-<span class="kn">from</span> <span class="nn">mlc_chat.callback</span> <span class="kn">import</span> <span class="n">StreamToStdout</span>
+file <code class="docutils literal notranslate"><span class="pre">sample_mlc_llm.py</span></code> and paste the following lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_llm</span> <span class="kn">import</span> <span class="n">ChatModule</span>
+<span class="kn">from</span> <span class="nn">mlc_llm.callback</span> <span class="kn">import</span> <span class="n">StreamToStdout</span>
 
 <span class="c1"># Create a ChatModule instance</span>
 <span class="n">cm</span> <span class="o">=</span> <span class="n">ChatModule</span><span class="p">(</span>
@@ -388,7 +398,7 @@ file <code class="docutils literal notranslate"><span class="pre">sample_mlc_cha
 </pre></div>
 </div>
 <p>Now run the Python file to start the chat</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>sample_mlc_chat.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>sample_mlc_llm.py
 </pre></div>
 </div>
 <details class="summary-see-output">
@@ -427,19 +437,19 @@ shown in the code snippet), follow <a class="reference internal" href="../compil
 </section>
 <section id="configure-mlcchat-in-python">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Configure MLCChat in Python</a><a class="headerlink" href="#configure-mlcchat-in-python" title="Permalink to this heading">¶</a></h2>
-<p>If you have checked out <a class="reference internal" href="../get_started/mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Configure MLCChat in JSON</span></a>, you would know
+<p>If you have checked out <a class="reference internal" href="mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Configure MLCChat in JSON</span></a>, you would know
 that you could configure MLCChat through various fields such as <code class="docutils literal notranslate"><span class="pre">temperature</span></code>. We provide the
 option of overriding any field you’d like in Python, so that you do not need to manually edit
 <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code>.</p>
 <p>Since there are two concepts – <cite>MLCChat Configuration</cite> and <cite>Conversation Configuration</cite> – we correspondingly
-provide two dataclasses <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_chat.ChatConfig</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_chat.ConvConfig</span></code>.</p>
+provide two dataclasses <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatConfig</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ConvConfig</span></code>.</p>
 <p>We provide an example below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_chat</span> <span class="kn">import</span> <span class="n">ChatModule</span><span class="p">,</span> <span class="n">ChatConfig</span><span class="p">,</span> <span class="n">ConvConfig</span>
-<span class="kn">from</span> <span class="nn">mlc_chat.callback</span> <span class="kn">import</span> <span class="n">StreamToStdout</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_llm</span> <span class="kn">import</span> <span class="n">ChatModule</span><span class="p">,</span> <span class="n">ChatConfig</span><span class="p">,</span> <span class="n">ConvConfig</span>
+<span class="kn">from</span> <span class="nn">mlc_llm.callback</span> <span class="kn">import</span> <span class="n">StreamToStdout</span>
 
 <span class="c1"># Using a `ConvConfig`, we modify `system`, a field in the conversation template</span>
 <span class="c1"># `system` refers to the prompt encoded before starting the chat</span>
-<span class="n">conv_config</span> <span class="o">=</span> <span class="n">ConvConfig</span><span class="p">(</span><span class="n">system</span><span class="o">=</span><span class="s1">&#39;Please show as much happiness as you can when talking to me.&#39;</span><span class="p">)</span>
+<span class="n">conv_config</span> <span class="o">=</span> <span class="n">ConvConfig</span><span class="p">(</span><span class="n">system_message</span><span class="o">=</span><span class="s1">&#39;Please show as much happiness as you can when talking to me.&#39;</span><span class="p">)</span>
 
 <span class="c1"># We then include the `ConvConfig` instance in `ChatConfig` while overriding `max_gen_len`</span>
 <span class="c1"># Note that `conv_config` is an optional subfield of `chat_config`</span>
@@ -490,11 +500,11 @@ Oh, wow, *excitedly* one plus one? *grinning* Well, let me see... *counting on f
 <p class="admonition-title">Note</p>
 <p>You do not need to specify the entire <code class="docutils literal notranslate"><span class="pre">ChatConfig</span></code> or <code class="docutils literal notranslate"><span class="pre">ConvConfig</span></code>. Instead, we will first
 load all the fields defined in <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code>, a file required when instantiating
-a <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_chat.ChatModule</span></code>. Then, we will load in the optional <code class="docutils literal notranslate"><span class="pre">ChatConfig</span></code> you provide, overriding the
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatModule</span></code>. Then, we will load in the optional <code class="docutils literal notranslate"><span class="pre">ChatConfig</span></code> you provide, overriding the
 fields specified.</p>
 <p>It is also worth noting that <code class="docutils literal notranslate"><span class="pre">ConvConfig</span></code> itself is overriding the original conversation template
 specified by the field <code class="docutils literal notranslate"><span class="pre">conv_template</span></code> in the chat configuration. Learn more about it in
-<a class="reference internal" href="../get_started/mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Configure MLCChat in JSON</span></a>.</p>
+<a class="reference internal" href="mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Configure MLCChat in JSON</span></a>.</p>
 </div>
 </section>
 <section id="raw-text-generation-in-python">
@@ -503,8 +513,8 @@ specified by the field <code class="docutils literal notranslate"><span class="p
 without being forced to create a new conversational template, making prompt customization easier.
 This serves other demands for APIs to handle LLM generation without the usual system prompts and other items.</p>
 <p>We provide an example below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_chat</span> <span class="kn">import</span> <span class="n">ChatModule</span><span class="p">,</span> <span class="n">ChatConfig</span><span class="p">,</span> <span class="n">ConvConfig</span>
-<span class="kn">from</span> <span class="nn">mlc_chat.callback</span> <span class="kn">import</span> <span class="n">StreamToStdout</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_llm</span> <span class="kn">import</span> <span class="n">ChatModule</span><span class="p">,</span> <span class="n">ChatConfig</span><span class="p">,</span> <span class="n">ConvConfig</span>
+<span class="kn">from</span> <span class="nn">mlc_llm.callback</span> <span class="kn">import</span> <span class="n">StreamToStdout</span>
 
 <span class="c1"># Use a `ConvConfig` to define the generation settings</span>
 <span class="c1"># Since the &quot;LM&quot; template only supports raw text generation,</span>
@@ -547,7 +557,7 @@ This serves other demands for APIs to handle LLM generation without the usual sy
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">LM</span></code> is a template without memory, which means that every execution will be cleared.
-Additionally, system prompts will not be run when instantiating a <cite>mlc_chat.ChatModule</cite>,
+Additionally, system prompts will not be run when instantiating a <cite>mlc_llm.ChatModule</cite>,
 unless explicitly given inside the prompt.</p>
 </div>
 </section>
@@ -556,8 +566,8 @@ unless explicitly given inside the prompt.</p>
 <p>Stream Iterator gives users an option to stream generated text to the function that the API is called from,
 instead of streaming to stdout, which could be a necessity when building services on top of MLC Chat.</p>
 <p>We provide an example below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_chat</span> <span class="kn">import</span> <span class="n">ChatModule</span>
-<span class="kn">from</span> <span class="nn">mlc_chat.callback</span> <span class="kn">import</span> <span class="n">StreamIterator</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlc_llm</span> <span class="kn">import</span> <span class="n">ChatModule</span>
+<span class="kn">from</span> <span class="nn">mlc_llm.callback</span> <span class="kn">import</span> <span class="n">StreamIterator</span>
 
 <span class="c1"># Create a ChatModule instance</span>
 <span class="n">cm</span> <span class="o">=</span> <span class="n">ChatModule</span><span class="p">(</span>
@@ -588,8 +598,8 @@ instead of streaming to stdout, which could be a necessity when building service
 </section>
 <section id="api-reference">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">API Reference</a><a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h2>
-<p>User can initiate a chat module by creating <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_chat.ChatModule</span></code> class, which is a wrapper of the MLC-Chat model.
-The <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_chat.ChatModule</span></code> class provides the following methods:</p>
+<p>User can initiate a chat module by creating <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatModule</span></code> class, which is a wrapper of the MLC-LLM model.
+The <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatModule</span></code> class provides the following methods:</p>
 </section>
 </section>
 
@@ -600,15 +610,6 @@ The <code class="xref py py-class docutils literal notranslate"><span class="pre
           
 
 <footer>
-
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ios.html" class="btn btn-neutral float-right" title="iOS App and Swift API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cli.html" class="btn btn-neutral float-left" title="CLI and C++ API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
 
 <div id="button" class="backtop"><img src="../_static/img/right.svg" alt="backtop"/> </div>
 <section class="footerSec">

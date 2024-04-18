@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Install MLC LLM Python Package" href="mlc_llm.html" />
-    <link rel="prev" title="Model Prebuilts from Old Flow (Deprecated)" href="../prebuilt_models_deprecated.html" /> 
+    <link rel="prev" title="Model Prebuilts" href="../prebuilt_models.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -167,17 +167,19 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/javascript.html">WebLLM and Javascript API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/rest.html">Rest API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/cli.html">CLI and C++ API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/python.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/javascript.html">WebLLM and JavaScript API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/python_engine.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deploy/ios.html">iOS App and Swift API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deploy/android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/ide_integration.html">Code Completion IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/mlc_chat_config.html">Customize MLC Config File in JSON</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
@@ -189,7 +191,6 @@
 <p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul class="current">
@@ -320,35 +321,27 @@
 </div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">CPU</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">CUDA 11.7</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">CUDA 11.8</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">CUDA 12.1</button><button aria-controls="panel-1-1-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-4" name="1-4" role="tab" tabindex="-1">CUDA 12.2</button><button aria-controls="panel-1-1-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-5" name="1-5" role="tab" tabindex="-1">ROCm 5.6</button><button aria-controls="panel-1-1-6" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-6" name="1-6" role="tab" tabindex="-1">ROCm 5.7</button><button aria-controls="panel-1-1-7" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-7" name="1-7" role="tab" tabindex="-1">Vulkan</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">CPU</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">CUDA 12.1</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">CUDA 12.2</button><button aria-controls="panel-1-1-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-3" name="1-3" role="tab" tabindex="-1">ROCm 5.6</button><button aria-controls="panel-1-1-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-4" name="1-4" role="tab" tabindex="-1">ROCm 5.7</button><button aria-controls="panel-1-1-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-5" name="1-5" role="tab" tabindex="-1">Vulkan</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
-python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly-cu117
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
-python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly-cu118
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly-cu121
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-4" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-4" name="1-4" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly-cu122
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-5" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-5" name="1-5" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
+</div><div aria-labelledby="tab-1-1-3" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-3" name="1-3" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly-rocm56
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-6" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-6" name="1-6" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
+</div><div aria-labelledby="tab-1-1-4" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-4" name="1-4" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>your-environment
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>https://mlc.ai/wheels<span class="w"> </span>mlc-ai-nightly-rocm57
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-1-7" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-7" name="1-7" role="tabpanel" tabindex="0"><p>Supported in all Linux packages.</p>
+</div><div aria-labelledby="tab-1-1-5" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-5" name="1-5" role="tabpanel" tabindex="0"><p>Supported in all Linux packages.</p>
 </div></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -424,7 +417,8 @@ conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> <
 conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>tvm-build-venv<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="s2">&quot;llvmdev&gt;=15&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="s2">&quot;cmake&gt;=3.24&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>git
+<span class="w">    </span>git<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
 <span class="c1"># enter the build environment</span>
 conda<span class="w"> </span>activate<span class="w"> </span>tvm-build-venv
 </pre></div>
@@ -459,6 +453,10 @@ cp<span class="w"> </span>../cmake/config.cmake<span class="w"> </span>.
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set(USE_METAL  OFF)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>config.cmake
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set(USE_VULKAN OFF)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>config.cmake
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set(USE_OPENCL OFF)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>config.cmake
+<span class="c1"># FlashInfer related, requires CUDA w/ compute capability 80;86;89;90</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set(USE_FLASHINFER OFF)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>config.cmake
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set(FLASHINFER_CUDA_ARCHITECTURES YOUR_CUDA_COMPUTE_CAPABILITY_HERE)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>config.cmake
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set(CMAKE_CUDA_ARCHITECTURES YOUR_CUDA_COMPUTE_CAPABILITY_HERE)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>config.cmake
 </pre></div>
 </div>
 </div>
@@ -471,6 +469,13 @@ cp<span class="w"> </span>../cmake/config.cmake<span class="w"> </span>.
 <li><p><code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code> sets <code class="docutils literal notranslate"><span class="pre">-O2</span> <span class="pre">-g</span> <span class="pre">-DNDEBUG</span></code> (recommended)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Release</span></code> sets <code class="docutils literal notranslate"><span class="pre">-O3</span> <span class="pre">-DNDEBUG</span></code></p></li>
 </ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using CUDA and your compute capability is above 80, then it is require to build with
+<code class="docutils literal notranslate"><span class="pre">set(USE_FLASHINFER</span> <span class="pre">ON)</span></code>. Otherwise, you may run into <code class="docutils literal notranslate"><span class="pre">Cannot</span> <span class="pre">find</span> <span class="pre">PackedFunc</span></code> issue during
+runtime.</p>
+<p>To check your CUDA compute capability, you can use <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">--query-gpu=compute_cap</span> <span class="pre">--format=csv</span></code>.</p>
 </div>
 <p>Once <code class="docutils literal notranslate"><span class="pre">config.cmake</span></code> is edited accordingly, kick off build with the commands below:</p>
 <div class="literal-block-wrapper docutils container" id="id4">
@@ -555,7 +560,7 @@ False<span class="w"> </span><span class="c1"># or True</span>
         <a href="mlc_llm.html" class="btn btn-neutral float-right" title="Install MLC LLM Python Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../prebuilt_models_deprecated.html" class="btn btn-neutral float-left" title="Model Prebuilts from Old Flow (Deprecated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../prebuilt_models.html" class="btn btn-neutral float-left" title="Model Prebuilts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
 

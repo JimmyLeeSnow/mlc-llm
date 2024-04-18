@@ -171,17 +171,19 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="deploy/javascript.html">WebLLM and Javascript API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy/rest.html">Rest API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy/cli.html">CLI and C++ API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy/python.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy/javascript.html">WebLLM and JavaScript API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy/rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy/cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy/python_engine.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy/ios.html">iOS App and Swift API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy/android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy/ide_integration.html">Code Completion IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy/mlc_chat_config.html">Customize MLC Config File in JSON</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
@@ -193,7 +195,6 @@
 <p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul>
@@ -287,49 +288,22 @@
    <h1>HTTP Routing Table</h1>
 
    <div class="modindex-jumpbox">
-   <a href="#cap-/chat"><strong>/chat</strong></a> | 
-   <a href="#cap-/stats"><strong>/stats</strong></a> | 
-   <a href="#cap-/v1"><strong>/v1</strong></a> | 
-   <a href="#cap-/verbose_stats"><strong>/verbose_stats</strong></a>
+   <a href="#cap-/v1"><strong>/v1</strong></a>
    </div>
 
    <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-/chat"><td></td><td>
-       <strong>/chat</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="deploy/rest.html#get--chat-reset"><code class="xref">GET /chat/reset</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-/stats"><td></td><td>
-       <strong>/stats</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="deploy/rest.html#get--stats"><code class="xref">GET /stats</code></a></td><td>
-       <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-/v1"><td></td><td>
        <strong>/v1</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="deploy/rest.html#get--v1-chat-completions"><code class="xref">GET /v1/chat/completions</code></a></td><td>
+       <a href="deploy/rest.html#get--v1-models"><code class="xref">GET /v1/models</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="deploy/rest.html#get--v1-completions"><code class="xref">GET /v1/completions</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-/verbose_stats"><td></td><td>
-       <strong>/verbose_stats</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="deploy/rest.html#get--verbose_stats"><code class="xref">GET /verbose_stats</code></a></td><td>
+       <a href="deploy/rest.html#post--v1-chat-completions"><code class="xref">POST /v1/chat/completions</code></a></td><td>
        <em></em></td></tr>
    </table>
 

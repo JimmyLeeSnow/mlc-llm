@@ -12,7 +12,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>WebLLM and Javascript API &mdash; mlc-llm 0.1.0 documentation</title>
+  <title>WebLLM and JavaScript API &mdash; mlc-llm 0.1.0 documentation</title>
   
 
   
@@ -46,8 +46,8 @@
     <script type="text/javascript" src="../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Rest API" href="rest.html" />
-    <link rel="prev" title="Configure MLCChat in JSON" href="../get_started/mlc_chat_config.html" /> 
+    <link rel="next" title="REST API" href="rest.html" />
+    <link rel="prev" title="Introduction to MLC LLM" href="../get_started/introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -166,12 +166,12 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WebLLM and Javascript API</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebLLM and JavaScript API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#try-out-the-prebuilt-webpage">Try out the Prebuilt Webpage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-webllm-npm-package">Use WebLLM NPM Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#verify-installation-for-adding-models">Verify Installation for Adding Models</a></li>
@@ -179,11 +179,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#bring-your-own-model-library">Bring Your Own Model Library</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rest.html">Rest API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI and C++ API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_engine.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ios.html">iOS App and Swift API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide_integration.html">Code Completion IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlc_chat_config.html">Customize MLC Config File in JSON</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
@@ -195,7 +197,6 @@
 <p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul>
@@ -269,7 +270,7 @@
     
       <li><a href="../index.html">Docs</a> <span class="br-arrow">></span></li>
         
-      <li>WebLLM and Javascript API</li>
+      <li>WebLLM and JavaScript API</li>
     
     
       
@@ -295,7 +296,7 @@
            <div itemprop="articleBody">
             
   <section id="webllm-and-javascript-api">
-<span id="webllm-runtime"></span><h1>WebLLM and Javascript API<a class="headerlink" href="#webllm-and-javascript-api" title="Permalink to this heading">¶</a></h1>
+<span id="webllm-runtime"></span><h1>WebLLM and JavaScript API<a class="headerlink" href="#webllm-and-javascript-api" title="Permalink to this heading">¶</a></h1>
 <nav class="contents local" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -358,19 +359,19 @@ we see the code snippet:</p>
 <section id="verify-installation-for-adding-models">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Verify Installation for Adding Models</a><a class="headerlink" href="#verify-installation-for-adding-models" title="Permalink to this heading">¶</a></h2>
 <p>In sections below, we walk you through two examples of adding models to WebLLM. Before proceeding,
-please verify installation of <code class="docutils literal notranslate"><span class="pre">mlc_chat</span></code> and <code class="docutils literal notranslate"><span class="pre">tvm</span></code>:</p>
-<p><strong>Step 1. Verify mlc_chat</strong></p>
-<p>We use the python package <code class="docutils literal notranslate"><span class="pre">mlc_chat</span></code> to compile models. This can be installed by
+please verify installation of <code class="docutils literal notranslate"><span class="pre">mlc_llm</span></code> and <code class="docutils literal notranslate"><span class="pre">tvm</span></code>:</p>
+<p><strong>Step 1. Verify mlc_llm</strong></p>
+<p>We use the python package <code class="docutils literal notranslate"><span class="pre">mlc_llm</span></code> to compile models. This can be installed by
 following <a class="reference internal" href="../install/mlc_llm.html#install-mlc-packages"><span class="std std-ref">Install MLC LLM Python Package</span></a>, either by building from source, or by
-installing the prebuilt package. Verify <code class="docutils literal notranslate"><span class="pre">mlc_chat</span></code> installation in command line via:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mlc_chat<span class="w"> </span>--help
+installing the prebuilt package. Verify <code class="docutils literal notranslate"><span class="pre">mlc_llm</span></code> installation in command line via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mlc_llm<span class="w"> </span>--help
 <span class="c1"># You should see help information with this line</span>
 usage:<span class="w"> </span>MLC<span class="w"> </span>LLM<span class="w"> </span>Command<span class="w"> </span>Line<span class="w"> </span>Interface.<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">{</span>compile,convert_weight,gen_config<span class="o">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If it runs into error <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found:</span> <span class="pre">mlc_chat</span></code>, try <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">mlc_chat</span> <span class="pre">--help</span></code>.</p>
+<p>If it runs into error <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found:</span> <span class="pre">mlc_llm</span></code>, try <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">mlc_llm</span> <span class="pre">--help</span></code>.</p>
 </div>
 <p><strong>Step 2. Verify TVM</strong></p>
 <p>To compile models, you also need to follow <a class="reference internal" href="../install/tvm.html#install-tvm-unity"><span class="std std-ref">Install TVM Unity Compiler</span></a>.
@@ -409,15 +410,15 @@ git<span class="w"> </span>lfs<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/WizardLM/WizardMath-7B-V1.1
 <span class="nb">cd</span><span class="w"> </span>../..
 <span class="c1"># Convert weight</span>
-mlc_chat<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/WizardMath-7B-V1.1/<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/WizardMath-7B-V1.1/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/WizardMath-7B-V1.1-q4f16_1-MLC
 </pre></div>
 </div>
 <p><strong>Step 2 Generate MLC Chat Config</strong></p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">mlc_chat</span> <span class="pre">gen_config</span></code> to generate <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> and process tokenizers.
+<p>Use <code class="docutils literal notranslate"><span class="pre">mlc_llm</span> <span class="pre">gen_config</span></code> to generate <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> and process tokenizers.
 See <a class="reference internal" href="../compilation/compile_models.html#compile-command-specification"><span class="std std-ref">Compile Command Specification</span></a> for specification of <code class="docutils literal notranslate"><span class="pre">gen_config</span></code>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mlc_chat<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/WizardMath-7B-V1.1/<span class="w"> </span><span class="se">\</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mlc_llm<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/WizardMath-7B-V1.1/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span>--conv-template<span class="w"> </span>wizard_coder_or_math<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/WizardMath-7B-V1.1-q4f16_1-MLC/
 </pre></div>
@@ -427,7 +428,7 @@ contains a full list of conversation templates that MLC provides.</p>
 <p>If the model you are adding requires a new conversation template, you would need to add your own.
 Follow <a class="reference external" href="https://github.com/mlc-ai/mlc-llm/pull/1402">this PR</a> as an example. Besides, you also need to add the new template to <code class="docutils literal notranslate"><span class="pre">/path/to/web-llm/src/conversation.ts</span></code>.
 We look up the template to use with the <code class="docutils literal notranslate"><span class="pre">conv_template</span></code> field in <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code>.</p>
-<p>For more details, please see <a class="reference internal" href="../get_started/mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Configure MLCChat in JSON</span></a>.</p>
+<p>For more details, please see <a class="reference internal" href="mlc_chat_config.html#configure-mlc-chat-json"><span class="std std-ref">Customize MLC Config File in JSON</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you added your conversation template in <code class="docutils literal notranslate"><span class="pre">src/conversation.ts</span></code>, you need to build WebLLM
@@ -497,7 +498,7 @@ own model library.</p>
 <p>This section largely replicates <a class="reference internal" href="../compilation/compile_models.html#compile-model-libraries"><span class="std std-ref">Compile Model Libraries</span></a>. See that page for
 more details, specifically the <code class="docutils literal notranslate"><span class="pre">WebGPU</span></code> option.</p>
 <p><strong>Step 0. Install dependencies</strong></p>
-<p>To compile model libraries for webgpu, you need to <a class="reference internal" href="../install/mlc_llm.html#mlcchat-build-from-source"><span class="std std-ref">build mlc_chat from source</span></a>.
+<p>To compile model libraries for webgpu, you need to <a class="reference internal" href="../install/mlc_llm.html#mlcchat-build-from-source"><span class="std std-ref">build mlc_llm from source</span></a>.
 Besides, you also need to follow <a class="reference internal" href="../install/emcc.html#install-web-build"><span class="std std-ref">Install Wasm Build Environment</span></a>. Otherwise, it would run into error:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RuntimeError: Cannot find libraries: wasm_runtime.bc
 </pre></div>
@@ -512,7 +513,7 @@ git<span class="w"> </span>lfs<span class="w"> </span>install
 git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/togethercomputer/RedPajama-INCITE-Chat-3B-v1
 <span class="nb">cd</span><span class="w"> </span>../..
 <span class="c1"># Convert weight</span>
-mlc_chat<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/RedPajama-INCITE-Chat-3B-v1/<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>convert_weight<span class="w"> </span>./dist/models/RedPajama-INCITE-Chat-3B-v1/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC
 </pre></div>
@@ -529,11 +530,11 @@ mlc_chat<span class="w"> </span>convert_weight<span class="w"> </span>./dist/mod
 </div></blockquote>
 <p>All these knobs are specified in <code class="docutils literal notranslate"><span class="pre">mlc-chat-config.json</span></code> generated by <code class="docutils literal notranslate"><span class="pre">gen_config</span></code>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. gen_config: generate mlc-chat-config.json and process tokenizers</span>
-mlc_chat<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/RedPajama-INCITE-Chat-3B-v1/<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>gen_config<span class="w"> </span>./dist/models/RedPajama-INCITE-Chat-3B-v1/<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--quantization<span class="w"> </span>q4f16_1<span class="w"> </span>--conv-template<span class="w"> </span>redpajama_chat<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-o<span class="w"> </span>dist/RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC/
 <span class="c1"># 2. compile: compile model library with specification in mlc-chat-config.json</span>
-mlc_chat<span class="w"> </span>compile<span class="w"> </span>./dist/RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC/mlc-chat-config.json<span class="w"> </span><span class="se">\</span>
+mlc_llm<span class="w"> </span>compile<span class="w"> </span>./dist/RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC/mlc-chat-config.json<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--device<span class="w"> </span>webgpu<span class="w"> </span>-o<span class="w"> </span>dist/libs/RedPajama-INCITE-Chat-3B-v1-q4f16_1-webgpu.wasm
 </pre></div>
 </div>
@@ -610,10 +611,10 @@ on how to run it.</p>
 
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rest.html" class="btn btn-neutral float-right" title="Rest API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rest.html" class="btn btn-neutral float-right" title="REST API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../get_started/mlc_chat_config.html" class="btn btn-neutral float-left" title="Configure MLCChat in JSON" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../get_started/introduction.html" class="btn btn-neutral float-left" title="Introduction to MLC LLM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
 

@@ -12,7 +12,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Vicuna Weights &mdash; mlc-llm 0.1.0 documentation</title>
+  <title>Python API &mdash; mlc-llm 0.1.0 documentation</title>
   
 
   
@@ -45,7 +45,9 @@
     
     <script type="text/javascript" src="../_static/js/tlcpack_theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="iOS App and Swift API" href="ios.html" />
+    <link rel="prev" title="CLI" href="cli.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -164,29 +166,30 @@
             
               <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/project_overview.html">Project Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/mlc_chat_config.html">Configure MLCChat in JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction to MLC LLM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Build and Deploy Apps</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/javascript.html">WebLLM and Javascript API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/rest.html">Rest API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/cli.html">CLI and C++ API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/python.html">Python API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/ios.html">iOS App and Swift API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deploy/android.html">Android App</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="javascript.html">WebLLM and JavaScript API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rest.html">REST API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ios.html">iOS App and Swift API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide_integration.html">Code Completion IDE Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlc_chat_config.html">Customize MLC Config File in JSON</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compile Models</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="convert_weights.html">Convert Weights via MLC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compile_models.html">Compile Model Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="define_new_models.html">Define New Model Architectures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configure_quantization.html">🚧 Configure Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/convert_weights.html">Convert Weights via MLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/compile_models.html">Compile Model Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/define_new_models.html">Define New Model Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compilation/configure_quantization.html">🚧 Configure Quantization</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Model Prebuilts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../prebuilt_models.html">Model Prebuilts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prebuilt_models_deprecated.html">Model Prebuilts from Old Flow (Deprecated)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Dependency Installation</span></p>
 <ul>
@@ -260,7 +263,7 @@
     
       <li><a href="../index.html">Docs</a> <span class="br-arrow">></span></li>
         
-      <li>Getting Vicuna Weights</li>
+      <li>Python API</li>
     
     
       
@@ -271,7 +274,7 @@
         
             
             
-              <a href="https://github.com/mlc-ai/mlc-llm/edit/main/docs/compilation/get-vicuna-weight.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/mlc-ai/mlc-llm/edit/main/docs/deploy/python_engine.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -285,60 +288,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="getting-vicuna-weights">
-<h1>Getting Vicuna Weights<a class="headerlink" href="#getting-vicuna-weights" title="Permalink to this heading">¶</a></h1>
-<nav class="contents local" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#install-fastchat" id="id1">Install FastChat</a></p></li>
-<li><p><a class="reference internal" href="#download-huggingface-llama-weights" id="id2">Download HuggingFace LLaMA Weights</a></p></li>
-<li><p><a class="reference internal" href="#optional-move-vicuna-weights-to-dist-folder" id="id3">(Optional) Move Vicuna Weights to dist folder</a></p></li>
-</ul>
-</nav>
-<p><a class="reference external" href="https://lmsys.org/blog/2023-03-30-vicuna/">Vicuna</a> is an open-source chatbot trained by fine-tuning <a class="reference external" href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">LLaMA</a> on <a class="reference external" href="https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered">ShartGPT</a> data.</p>
-<p>Please note that the official Vicuna weights are delta weights applied to the LLaMA weights in order to comply with the LLaMA license. Users are responsible for applying these delta weights themselves.</p>
-<p>In this tutorial, we will show how to apply the delta weights to LLaMA weights to get Vicuna weights.</p>
-<section id="install-fastchat">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Install FastChat</a><a class="headerlink" href="#install-fastchat" title="Permalink to this heading">¶</a></h2>
-<p>FastChat offers convenient utility functions for applying the delta to LLaMA weights. You can easily install it using pip.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>fschat
-</pre></div>
+  <section id="python-api">
+<span id="deploy-python-engine"></span><h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page introduces the Python API with LLMEngine in MLC LLM.
+If you want to check out the old Python API which uses <code class="xref py py-class docutils literal notranslate"><span class="pre">mlc_llm.ChatModule</span></code>,
+please go to <a class="reference internal" href="python_chat_module.html#deploy-python-chat-module"><span class="std std-ref">Python API (Chat Module)</span></a></p>
 </div>
-</section>
-<section id="download-huggingface-llama-weights">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Download HuggingFace LLaMA Weights</a><a class="headerlink" href="#download-huggingface-llama-weights" title="Permalink to this heading">¶</a></h2>
-<p>The HuggingFace LLaMA weights are hosted using Git-LFS. Therefore, it is necessary to install Git-LFS first (you can ignore this step if git-lfs is already installed).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>git-lfs
-git<span class="w"> </span>lfs<span class="w"> </span>install
-</pre></div>
-</div>
-<p>Then download the weights (both the LLaMA weight and Vicuna delta weight):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/decapoda-research/llama-7b-hf
-git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/lmsys/vicuna-7b-delta-v1.1
-</pre></div>
-</div>
-<p>There is a name misalignment issue in the LLaMA weights and Vicuna delta weights.
-Please follow these steps to modify the content of the “config.json” file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/LLaMAForCausalLM/LlamaForCausalLM/g&#39;</span><span class="w"> </span>llama-7b-hf/config.json
-</pre></div>
-</div>
-<p>Then use <code class="docutils literal notranslate"><span class="pre">fschat</span></code> to apply the delta to LLaMA weights</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>fastchat.model.apply_delta<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--base-model-path<span class="w"> </span>llama-7b-hf<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--target-model-path<span class="w"> </span>vicuna-7b-v1.1<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--delta-path<span class="w"> </span>vicuna-7b-delta-v1.1
-</pre></div>
-</div>
-<p>You will get the Vicuna weights in <code class="docutils literal notranslate"><span class="pre">vicuna-7b-v1.1</span></code> folder, which can be used as input of MLC-LLM to further compile models.</p>
-</section>
-<section id="optional-move-vicuna-weights-to-dist-folder">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">(Optional) Move Vicuna Weights to dist folder</a><a class="headerlink" href="#optional-move-vicuna-weights-to-dist-folder" title="Permalink to this heading">¶</a></h2>
-<p>The default model path of MLC-LLM is <code class="docutils literal notranslate"><span class="pre">dist</span></code> folder. Therefore, it is recommended to move the Vicuna weights to <code class="docutils literal notranslate"><span class="pre">dist</span></code> folder.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>dist/models
-mv<span class="w"> </span>vicuna-7b-v1.1<span class="w"> </span>dist/models/vicuna-7b-v1.1
-</pre></div>
-</div>
-</section>
+<p>🚧 Under construction…</p>
 </section>
 
 
@@ -348,6 +306,15 @@ mv<span class="w"> </span>vicuna-7b-v1.1<span class="w"> </span>dist/models/vicu
           
 
 <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ios.html" class="btn btn-neutral float-right" title="iOS App and Swift API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cli.html" class="btn btn-neutral float-left" title="CLI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
 
 <div id="button" class="backtop"><img src="../_static/img/right.svg" alt="backtop"/> </div>
 <section class="footerSec">
