@@ -17,6 +17,7 @@ Select your operating system/compute platform and run the command in your termin
 
 .. note::
     ❗ Whenever using Python, it is highly recommended to use **conda** to manage an isolated Python environment to avoid missing dependencies, incompatible versions, and package conflicts.
+    Please make sure your conda environment has Python and pip installed.
 
 .. tabs::
 
@@ -29,48 +30,51 @@ Select your operating system/compute platform and run the command in your termin
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly mlc-ai-nightly
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly mlc-ai-nightly
 
             .. tab:: CUDA 12.1
 
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-cu121 mlc-ai-nightly-cu121
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-cu121 mlc-ai-nightly-cu121
 
             .. tab:: CUDA 12.2
 
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-cu122 mlc-ai-nightly-cu122
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-cu122 mlc-ai-nightly-cu122
 
             .. tab:: ROCm 5.6
 
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-rocm56 mlc-ai-nightly-rocm56
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-rocm56 mlc-ai-nightly-rocm56
 
             .. tab:: ROCm 5.7
 
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-rocm57 mlc-ai-nightly-rocm57
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-rocm57 mlc-ai-nightly-rocm57
 
             .. tab:: Vulkan
 
                 Supported in all Linux packages. Checkout the following instructions
                 to install the latest vulkan loader to avoid vulkan not found issue.
 
-        .. note::
+                .. code-block:: bash
 
+                    conda install -c conda-forge gcc libvulkan-loader
+
+        .. note::
+            We need git-lfs in the system, you can install it via
 
             .. code-block:: bash
 
-                conda install -c conda-forge gcc libvulkan-loader
-
+                conda install -c conda-forge git-lfs
 
             If encountering issues with GLIBC not found, please install the latest glibc in conda:
 
@@ -94,7 +98,7 @@ Select your operating system/compute platform and run the command in your termin
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly mlc-ai-nightly
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly mlc-ai-nightly
 
         .. note::
 
@@ -105,6 +109,11 @@ Select your operating system/compute platform and run the command in your termin
                 conda info | grep platform
 
             It should return "osx-64" for Mac with Intel chip, and "osx-arm64" for Mac with Apple chip.
+            We need git-lfs in the system, you can install it via
+
+            .. code-block:: bash
+
+                conda install -c conda-forge git-lfs
 
     .. tab:: Windows
 
@@ -115,9 +124,18 @@ Select your operating system/compute platform and run the command in your termin
                 .. code-block:: bash
 
                     conda activate your-environment
-                    python3 -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly mlc-ai-nightly
+                    python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly mlc-ai-nightly
 
         .. note::
+            Please make sure your conda environment comes with python and pip.
+            Make sure you also install the following packages,
+            vulkan loader, clang, git and git-lfs to enable proper automatic download
+            and jit compilation.
+
+            .. code-block:: bash
+
+                conda install -c conda-forge clang libvulkan-loader git-lfs git
+
             If encountering the error below:
 
             .. code-block:: bash
@@ -188,7 +206,7 @@ This step is useful when you want to make modification or obtain a specific vers
     # create build directory
     mkdir -p build && cd build
     # generate build configuration
-    python3 ../cmake/gen_cmake_config.py
+    python ../cmake/gen_cmake_config.py
     # build mlc_llm libraries
     cmake .. && cmake --build . --parallel $(nproc) && cd ..
 
@@ -200,14 +218,16 @@ This step is useful when you want to make modification or obtain a specific vers
     To check your CUDA compute capability, you can use ``nvidia-smi --query-gpu=compute_cap --format=csv``.
 
 **Step 3. Install via Python.** We recommend that you install ``mlc_llm`` as a Python package, giving you
-access to ``mlc_llm.compile``, ``mlc_llm.ChatModule``, and the CLI.
+access to ``mlc_llm.compile``, ``mlc_llm.MLCEngine``, and the CLI.
 There are two ways to do so:
 
     .. tabs ::
 
        .. code-tab :: bash Install via environment variable
 
-          export PYTHONPATH=/path-to-mlc-llm/python:$PYTHONPATH
+          export MLC_LLM_SOURCE_DIR=/path-to-mlc-llm
+          export PYTHONPATH=$MLC_LLM_SOURCE_DIR/python:$PYTHONPATH
+          alias mlc_llm="python -m mlc_llm"
 
        .. code-tab :: bash Install via pip local project
 
